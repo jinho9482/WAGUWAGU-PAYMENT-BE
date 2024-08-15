@@ -23,7 +23,8 @@ public class Payment {
 
     // 결제 시점
     @Column(name = "CREATED_AT")
-    private Timestamp createdAt;
+    @Builder.Default
+    private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
 
     @Column(name = "CANCELED")
     @Builder.Default
