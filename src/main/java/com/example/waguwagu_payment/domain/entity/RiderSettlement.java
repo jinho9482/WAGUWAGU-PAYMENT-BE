@@ -22,7 +22,8 @@ public class RiderSettlement {
 
     // 정산 시점
     @Column(name = "CREATED_AT")
-    private Timestamp createdAt;
+    @Builder.Default
+    private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
 
     // 라이더 정산 금액
     @Column(name = "PROFIT")

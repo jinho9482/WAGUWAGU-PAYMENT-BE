@@ -22,7 +22,8 @@ public class StoreSettlement {
 
     // 정산 시점
     @Column(name = "CREATED_AT")
-    private Timestamp createdAt;
+    @Builder.Default
+    private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
 
     // 중개 수수료
     @Column(name = "COMMISSION")
