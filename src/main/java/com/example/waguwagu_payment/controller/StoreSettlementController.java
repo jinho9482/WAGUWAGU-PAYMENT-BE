@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/store-settlements")
+@RequestMapping("/api/v1/payments/store-settlements")
 @RequiredArgsConstructor
 public class StoreSettlementController {
     private final StoreSettlementService storeSettlementService;

@@ -32,7 +32,6 @@ class PaymentServiceTest {
     void savePayment() {
         Payment payment = Payment.builder()
                 .orderId(ORDER_ID)
-                .createdAt(new Timestamp(System.currentTimeMillis()))
                 .build();
         paymentRepository.save(payment);
     }
@@ -53,10 +52,10 @@ class PaymentServiceTest {
     }
 
     @Nested
+    @Transactional
     class getById {
         @Test
         @DisplayName("Success : should fetch same as saved record")
-        @Transactional
         void success() {
             List<Payment> payments = paymentRepository.findAll();
             int lastIndex = payments.size()-1;
@@ -68,17 +67,16 @@ class PaymentServiceTest {
         }
         @Test
         @DisplayName("Fail : should throw an error when id doesn't exist")
-        @Transactional
         void fail() {
             assertThrows(PaymentNotFoundException.class, () -> paymentService.getById(UUID.randomUUID()));
         }
     }
 
     @Nested
+    @Transactional
     class getByOrderId {
         @Test
         @DisplayName("Success : should fetch same as saved record")
-        @Transactional
         void success() {
             PaymentResponse res = paymentService.getByOrderId(ORDER_ID);
 
@@ -87,18 +85,16 @@ class PaymentServiceTest {
         }
         @Test
         @DisplayName("Fail : should throw an error when order id doesn't exist")
-        @Transactional
         void fail() {
             assertThrows(PaymentNotFoundException.class, () -> paymentService.getByOrderId(UUID.randomUUID()));
         }
     }
 
     @Nested
+    @Transactional
     class cancelPaymentById {
         @Test
         @DisplayName("Success : should change canceled true")
-        @Transactional
-
         void success() {
             List<Payment> payments = paymentRepository.findAll();
             int lastIndex = payments.size()-1;
@@ -111,23 +107,22 @@ class PaymentServiceTest {
         }
         @Test
         @DisplayName("Fail : should throw an error when id doesn't exist")
-        @Transactional
-
         void fail() {
             assertThrows(PaymentNotFoundException.class, () -> paymentService.cancelPaymentById(UUID.randomUUID()));
         }
     }
 
     @Nested
+    @Transactional
     class cancelPaymentByOrderId {
         @Test
         @DisplayName("Success : should change canceled true")
-        @Transactional
         void success() {
             paymentService.cancelPaymentByOrderId(ORDER_ID);
             List<Payment> payments = paymentRepository.findAll();
             int lastIndex = payments.size()-1;
             UUID savedId = payments.get(lastIndex).getId();
+            paymentService.cancelPaymentById(savedId);
             Payment payment = paymentRepository.findById(savedId).orElseThrow(PaymentNotFoundException::new);
 
             assertNotNull(payment);
@@ -135,7 +130,6 @@ class PaymentServiceTest {
         }
         @Test
         @DisplayName("Fail : should throw an error when order id doesn't exist")
-        @Transactional
         void fail() {
             assertThrows(PaymentNotFoundException.class, () -> paymentService.cancelPaymentByOrderId(UUID.randomUUID()));
         }
