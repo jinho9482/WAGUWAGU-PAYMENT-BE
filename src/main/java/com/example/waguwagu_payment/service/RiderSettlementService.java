@@ -9,8 +9,8 @@ import java.util.UUID;
 public interface RiderSettlementService {
     void createRiderSettlement(RiderSettlementRequest req);
     RiderSettlementResponse getById(UUID id);
-    RiderSettlementResponse getByPaymentId(UUID paymentId);
+    RiderSettlementResponse getByPaymentId(Long paymentId);
     void deleteById(UUID id);
-    void deleteByPaymentId(UUID paymentId);
+    void deleteByPaymentId(Long paymentId);
     RiderIncome calculateMoneyForRider(OrderInfo dto);
 }

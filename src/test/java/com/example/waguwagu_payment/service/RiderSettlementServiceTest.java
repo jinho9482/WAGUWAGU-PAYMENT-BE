@@ -38,11 +38,11 @@ class RiderSettlementServiceTest {
     @BeforeEach
     void saveRiderSettlement() {
         UUID orderId = UUID.randomUUID();
-        PaymentRequest req = new PaymentRequest(orderId);
+        PaymentRequest req = new PaymentRequest(1L, orderId);
         paymentService.createPayment(req);
 
         PaymentResponse res = paymentService.getByOrderId(orderId);
-        Payment payment = Payment.builder().id(res.id()).build();
+        Payment payment = Payment.builder().id(1L).build();
 
         RiderSettlement riderSettlement = RiderSettlement
                 .builder()
@@ -61,11 +61,11 @@ class RiderSettlementServiceTest {
     @Transactional
     void createRiderSettlement() {
         UUID orderId = UUID.randomUUID();
-        PaymentRequest paymentRequest = new PaymentRequest(orderId);
+        PaymentRequest paymentRequest = new PaymentRequest(40L, orderId);
         paymentService.createPayment(paymentRequest);
 
         PaymentResponse res = paymentService.getByOrderId(orderId);
-        UUID paymentId = res.id();
+        Long paymentId = res.id();
 
         RiderSettlementRequest riderSettlementRequest = new RiderSettlementRequest(
             200000, 6000, 600, paymentId
@@ -110,7 +110,7 @@ class RiderSettlementServiceTest {
         void success() {
             List<RiderSettlement> riderSettlements = riderSettlementRepository.findAll();
             int lastIndex = riderSettlements.size()-1;
-            UUID savedPaymentId = riderSettlements.get(lastIndex).getPayment().getId();
+            Long savedPaymentId = riderSettlements.get(lastIndex).getPayment().getId();
             RiderSettlementResponse res = riderSettlementService.getByPaymentId(savedPaymentId);
 
             assertNotNull(res);
@@ -120,7 +120,7 @@ class RiderSettlementServiceTest {
         @DisplayName("Fail : should throw an error when payment id doesn't exist")
         void fail() {
             assertThrows(RiderSettlementNotFoundException.class,
-                    () -> riderSettlementService.getByPaymentId(UUID.randomUUID()));
+                    () -> riderSettlementService.getByPaymentId(600L));
         }
     }
 
@@ -157,7 +157,7 @@ class RiderSettlementServiceTest {
         void success() {
             List<RiderSettlement> riderSettlements = riderSettlementRepository.findAll();
             int lastIndex = riderSettlements.size()-1;
-            UUID savedPaymentId = riderSettlements.get(lastIndex).getPayment().getId();
+            Long savedPaymentId = riderSettlements.get(lastIndex).getPayment().getId();
             UUID savedId = riderSettlements.get(lastIndex).getId();
 
             riderSettlementService.deleteByPaymentId(savedPaymentId);
@@ -172,7 +172,7 @@ class RiderSettlementServiceTest {
         @DisplayName("Fail : should throw an error when payment Id doesn't exist")
         void fail() {
             assertThrows(RiderSettlementNotFoundException.class,
-                    () -> riderSettlementService.deleteByPaymentId(UUID.randomUUID()));
+                    () -> riderSettlementService.deleteByPaymentId(500L));
         }
     }
 

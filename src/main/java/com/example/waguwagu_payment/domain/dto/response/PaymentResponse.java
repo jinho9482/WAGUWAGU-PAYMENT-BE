@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 public record PaymentResponse(
-    UUID id,
+        Long id,
     UUID orderId,
     Timestamp createdAt
 ) {

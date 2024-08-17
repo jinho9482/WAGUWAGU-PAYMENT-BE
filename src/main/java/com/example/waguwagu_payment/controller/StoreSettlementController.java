@@ -29,7 +29,7 @@ public class StoreSettlementController {
         return storeSettlementResponse;
     }
     @GetMapping("/paymentId/{paymentId}")
-    public StoreSettlementResponse getByPaymentId(@PathVariable UUID paymentId) {
+    public StoreSettlementResponse getByPaymentId(@PathVariable Long paymentId) {
         return storeSettlementService.getByPaymentId(paymentId);
     }
     @DeleteMapping("/id/{id}")
@@ -37,7 +37,7 @@ public class StoreSettlementController {
         storeSettlementService.deleteById(id);
     }
     @DeleteMapping("/paymentId/{paymentId}")
-    public void deleteByPaymentId(@PathVariable UUID paymentId) {
+    public void deleteByPaymentId(@PathVariable Long paymentId) {
         storeSettlementService.deleteByPaymentId(paymentId);
     }
 

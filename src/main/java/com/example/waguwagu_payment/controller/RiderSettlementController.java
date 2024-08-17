@@ -26,7 +26,7 @@ public class RiderSettlementController {
     }
 
     @GetMapping("/paymentId/{paymentId}")
-    public RiderSettlementResponse getByPaymentId(@PathVariable UUID paymentId) {
+    public RiderSettlementResponse getByPaymentId(@PathVariable Long paymentId) {
         RiderSettlementResponse riderSettlementResponse = riderSettlementService.getByPaymentId(paymentId);
         return riderSettlementResponse;
     }
@@ -37,7 +37,7 @@ public class RiderSettlementController {
     }
 
     @DeleteMapping("/paymentId/{paymentId}")
-    public void deleteByPaymentId(@PathVariable UUID paymentId) {
+    public void deleteByPaymentId(@PathVariable Long paymentId) {
         riderSettlementService.deleteByPaymentId(paymentId);
     }
 }

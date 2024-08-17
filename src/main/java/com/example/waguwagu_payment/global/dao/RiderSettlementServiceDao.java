@@ -8,5 +8,5 @@ import java.util.UUID;
 public interface RiderSettlementServiceDao {
     void save(RiderSettlementRequest req);
     RiderSettlement findById(UUID id);
-    RiderSettlement findByPaymentId(UUID paymentId);
+    RiderSettlement findByPaymentId(Long paymentId);
 }

@@ -7,7 +7,7 @@ spring:
     password: {MYSQL_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
   kafka:
     bootstrap-servers: 34.71.194.186:9094

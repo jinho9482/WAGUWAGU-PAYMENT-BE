@@ -20,7 +20,7 @@ public class PaymentController {
     }
 
     @GetMapping("/id/{id}")
-    public PaymentResponse getById(@PathVariable UUID id) {
+    public PaymentResponse getById(@PathVariable Long id) {
         PaymentResponse paymentResponse = paymentService.getById(id);
         return paymentResponse;
     }
@@ -32,7 +32,7 @@ public class PaymentController {
     }
 
     @DeleteMapping("/id/{id}")
-    public void cancelPaymentById(@PathVariable UUID id) {
+    public void cancelPaymentById(@PathVariable Long id) {
         paymentService.cancelPaymentById(id);
     }
 

@@ -31,7 +31,7 @@ public class StoreSettlementServiceDaoImpl implements StoreSettlementServiceDao 
     }
 
     @Override
-    public StoreSettlement findByPaymentId(UUID paymentId) {
+    public StoreSettlement findByPaymentId(Long paymentId) {
         StoreSettlement storeSettlement = storeSettlementRepository.findByPaymentIdAndDeletedFalse(paymentId)
                 .orElseThrow(StoreSettlementNotFoundException::new);
         return storeSettlement;

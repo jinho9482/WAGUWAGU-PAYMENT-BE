@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface PaymentServiceDao {
     void save(PaymentRequest payment);
-    Payment findById(UUID id);
+    Payment findById(Long id);
     Payment findByOrderId(UUID orderId);
 //    void deleteById(UUID id);
 //    void deleteByOrderId(UUID orderId);

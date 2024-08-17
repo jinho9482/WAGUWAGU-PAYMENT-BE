@@ -8,8 +8,8 @@ import java.util.UUID;
 
 public interface PaymentService {
     void createPayment(PaymentRequest req);
-    PaymentResponse getById(UUID id);
+    PaymentResponse getById(Long id);
     PaymentResponse getByOrderId(UUID orderId);
-    void cancelPaymentById(UUID id);
+    void cancelPaymentById(Long id);
     void cancelPaymentByOrderId(UUID orderId);
 }

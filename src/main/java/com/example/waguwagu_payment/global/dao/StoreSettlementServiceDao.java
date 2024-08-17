@@ -9,5 +9,5 @@ import java.util.UUID;
 public interface StoreSettlementServiceDao {
     void save(StoreSettlementRequest req);
     StoreSettlement findById(UUID id);
-    StoreSettlement findByPaymentId(UUID paymentId);
+    StoreSettlement findByPaymentId(Long paymentId);
 }
