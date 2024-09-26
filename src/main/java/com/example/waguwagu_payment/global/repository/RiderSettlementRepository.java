@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface RiderSettlementRepository extends JpaRepository<RiderSettlement, UUID> {
     Optional<RiderSettlement> findByIdAndDeletedFalse(UUID id);
-    Optional<RiderSettlement> findByPaymentIdAndDeletedFalse(UUID paymentId);
+    Optional<RiderSettlement> findByPaymentIdAndDeletedFalse(Long paymentId);
 }

@@ -36,7 +36,7 @@ public class StoreSettlementServiceImpl implements StoreSettlementService {
     }
 
     @Override
-    public StoreSettlementResponse getByPaymentId(UUID paymentId) {
+    public StoreSettlementResponse getByPaymentId(Long paymentId) {
         StoreSettlement storeSettlement = storeSettlementServiceDao.findByPaymentId(paymentId);
         StoreSettlementResponse res = StoreSettlementResponse.from(storeSettlement);
         return res;
@@ -49,7 +49,7 @@ public class StoreSettlementServiceImpl implements StoreSettlementService {
     }
 
     @Override
-    public void deleteByPaymentId(UUID paymentId) {
+    public void deleteByPaymentId(Long paymentId) {
         StoreSettlement storeSettlement = storeSettlementServiceDao.findByPaymentId(paymentId);
         storeSettlement.setDeleted(true);
     }

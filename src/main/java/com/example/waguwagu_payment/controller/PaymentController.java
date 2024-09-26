@@ -16,7 +16,7 @@ import java.util.UUID;
 @Tag(name = "결제")
 public class PaymentController {
     private final PaymentService paymentService;
-
+    //
     @PostMapping
     @Operation(summary = "결제 내역 생성")
     public void createPayment(@RequestBody PaymentRequest req) {
@@ -25,7 +25,7 @@ public class PaymentController {
 
     @GetMapping("/id/{id}")
     @Operation(summary = "결제 ID로 결제 내역 가져오기")
-    public PaymentResponse getById(@PathVariable UUID id) {
+    public PaymentResponse getById(@PathVariable Long id) {
         PaymentResponse paymentResponse = paymentService.getById(id);
         return paymentResponse;
     }
@@ -39,7 +39,7 @@ public class PaymentController {
 
     @DeleteMapping("/id/{id}")
     @Operation(summary = "결제 ID로 결제 내역 취소하기")
-    public void cancelPaymentById(@PathVariable UUID id) {
+    public void cancelPaymentById(@PathVariable Long id) {
         paymentService.cancelPaymentById(id);
     }
 

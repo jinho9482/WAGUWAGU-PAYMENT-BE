@@ -12,7 +12,7 @@ public record StoreSettlementRequest(
     int commission,
     int deliveryFee,
     int valueAddedTax,
-    UUID paymentId
+    Long paymentId
 ) {
     public StoreSettlement toEntity(Payment payment) {
         StoreSettlement storeSettlement = StoreSettlement.builder()

@@ -31,7 +31,7 @@ public class RiderSettlementServiceDaoImpl implements RiderSettlementServiceDao 
     }
 
     @Override
-    public RiderSettlement findByPaymentId(UUID paymentId) {
+    public RiderSettlement findByPaymentId(Long paymentId) {
         RiderSettlement riderSettlement = riderSettlementRepository.findByPaymentIdAndDeletedFalse(paymentId)
                 .orElseThrow(RiderSettlementNotFoundException::new);
         return riderSettlement;

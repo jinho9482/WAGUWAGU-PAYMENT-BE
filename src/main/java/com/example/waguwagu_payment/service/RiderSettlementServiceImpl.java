@@ -38,7 +38,7 @@ public class RiderSettlementServiceImpl implements RiderSettlementService {
     }
 
     @Override
-    public RiderSettlementResponse getByPaymentId(UUID paymentId) {
+    public RiderSettlementResponse getByPaymentId(Long paymentId) {
         RiderSettlement riderSettlement = riderSettlementServiceDao.findByPaymentId(paymentId);
         RiderSettlementResponse res = RiderSettlementResponse.from(riderSettlement);
         return res;
@@ -51,7 +51,7 @@ public class RiderSettlementServiceImpl implements RiderSettlementService {
     }
 
     @Override
-    public void deleteByPaymentId(UUID paymentId) {
+    public void deleteByPaymentId(Long paymentId) {
         RiderSettlement riderSettlement = riderSettlementServiceDao.findByPaymentId(paymentId);
         riderSettlement.setDeleted(true);
     }

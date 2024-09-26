@@ -10,7 +10,7 @@ spring:
       ddl-auto: update
     show-sql: true
   kafka:
-    bootstrap-servers: 34.71.194.186:9094
+    bootstrap-servers: 104.197.138.114:9094
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:

@@ -26,7 +26,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public PaymentResponse getById(UUID id) {
+    public PaymentResponse getById(Long id) {
         Payment payment = paymentServiceDao.findById(id);
         PaymentResponse res = PaymentResponse.from(payment);
         return res;
@@ -40,7 +40,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public void cancelPaymentById(UUID id) {
+    public void cancelPaymentById(Long id) {
         Payment payment = paymentServiceDao.findById(id);
         payment.setCanceled(true);
     }

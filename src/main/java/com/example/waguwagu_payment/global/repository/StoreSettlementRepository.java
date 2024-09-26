@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface StoreSettlementRepository extends JpaRepository<StoreSettlement, UUID> {
     Optional<StoreSettlement> findByIdAndDeletedFalse(UUID id);
-    Optional<StoreSettlement> findByPaymentIdAndDeletedFalse(UUID paymentId);
+    Optional<StoreSettlement> findByPaymentIdAndDeletedFalse(Long paymentId);
 }

@@ -32,7 +32,7 @@ public class RiderSettlementController {
 
     @GetMapping("/paymentId/{paymentId}")
     @Operation(summary = "결제 ID로 배달 기사 정산 내역 가져오기")
-    public RiderSettlementResponse getByPaymentId(@PathVariable UUID paymentId) {
+    public RiderSettlementResponse getByPaymentId(@PathVariable Long paymentId) {
         RiderSettlementResponse riderSettlementResponse = riderSettlementService.getByPaymentId(paymentId);
         return riderSettlementResponse;
     }
@@ -45,7 +45,7 @@ public class RiderSettlementController {
 
     @DeleteMapping("/paymentId/{paymentId}")
     @Operation(summary = "결제 ID로 배달 기사 정산 내역 삭제")
-    public void deleteByPaymentId(@PathVariable UUID paymentId) {
+    public void deleteByPaymentId(@PathVariable Long paymentId) {
         riderSettlementService.deleteByPaymentId(paymentId);
     }
 }

@@ -35,7 +35,7 @@ public class StoreSettlementController {
     }
     @GetMapping("/paymentId/{paymentId}")
     @Operation(summary = "결제 ID로 가게 정산 내역 가져오기")
-    public StoreSettlementResponse getByPaymentId(@PathVariable UUID paymentId) {
+    public StoreSettlementResponse getByPaymentId(@PathVariable Long paymentId) {
         return storeSettlementService.getByPaymentId(paymentId);
     }
     @DeleteMapping("/id/{id}")
@@ -45,7 +45,7 @@ public class StoreSettlementController {
     }
     @DeleteMapping("/paymentId/{paymentId}")
     @Operation(summary = "결제 ID로 가게 정산 내역 삭제")
-    public void deleteByPaymentId(@PathVariable UUID paymentId) {
+    public void deleteByPaymentId(@PathVariable Long paymentId) {
         storeSettlementService.deleteByPaymentId(paymentId);
     }
 
