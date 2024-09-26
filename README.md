@@ -27,6 +27,13 @@ https://github.com/WAGUWAGUUU/WAGUWAGU
 <img width="698" alt="image" src="https://github.com/user-attachments/assets/6f6a7947-ce75-4095-85e0-84f12ee9f135">
 <br><br>
 
+## <br>🧾 데이터 흐름도<br><br>
+
+<img width="847" alt="image" src="https://github.com/user-attachments/assets/0d22f59d-8899-4e0a-a640-75b357fcfe4f">
+<br>
+<img width="685" alt="image" src="https://github.com/user-attachments/assets/105720eb-c2d4-426b-81b7-9ac770775ffa">
+
+
 
 ## 🔗 ERD<br>
 <img width="767" alt="image" src="https://github.com/user-attachments/assets/a9f34fd2-c922-4704-9377-e815be0ad69e">
