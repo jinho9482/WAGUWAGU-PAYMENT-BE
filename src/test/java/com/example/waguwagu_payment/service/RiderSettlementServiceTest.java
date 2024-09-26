@@ -58,6 +58,7 @@ class RiderSettlementServiceTest {
 
     @Test
     @DisplayName("Success : should fetch same as saved record")
+    @Transactional
     void createRiderSettlement() {
         UUID orderId = UUID.randomUUID();
         PaymentRequest paymentRequest = new PaymentRequest(orderId);
@@ -80,9 +81,9 @@ class RiderSettlementServiceTest {
     }
 
     @Nested
+    @Transactional
     class getById {
         @Test
-        @Transactional
         @DisplayName("Success : should fetch same as saved record")
         void success() {
             List<RiderSettlement> riderSettlements = riderSettlementRepository.findAll();
@@ -94,7 +95,6 @@ class RiderSettlementServiceTest {
             assertEquals(3000, res.incomeTax());
         }
         @Test
-        @Transactional
         @DisplayName("Fail : should throw an error when id doesn't exist")
         void fail() {
             assertThrows(RiderSettlementNotFoundException.class,
@@ -103,9 +103,9 @@ class RiderSettlementServiceTest {
     }
 
     @Nested
+    @Transactional
     class getByPaymentId {
         @Test
-        @Transactional
         @DisplayName("Success : should fetch same as saved record")
         void success() {
             List<RiderSettlement> riderSettlements = riderSettlementRepository.findAll();
@@ -117,7 +117,6 @@ class RiderSettlementServiceTest {
             assertEquals(3000, res.incomeTax());
         }
         @Test
-        @Transactional
         @DisplayName("Fail : should throw an error when payment id doesn't exist")
         void fail() {
             assertThrows(RiderSettlementNotFoundException.class,
@@ -126,9 +125,9 @@ class RiderSettlementServiceTest {
     }
 
     @Nested
+    @Transactional
     class deleteById {
         @Test
-        @Transactional
         @DisplayName("Success : should change deleted true")
         void success() {
             List<RiderSettlement> riderSettlements = riderSettlementRepository.findAll();
@@ -144,7 +143,6 @@ class RiderSettlementServiceTest {
             assertTrue(riderSettlement.isDeleted());
         }
         @Test
-        @Transactional
         @DisplayName("Fail : should throw an error when id doesn't exist")
         void fail() {
             assertThrows(RiderSettlementNotFoundException.class,
@@ -152,9 +150,9 @@ class RiderSettlementServiceTest {
         }
     }
     @Nested
+    @Transactional
     class deleteByPaymentId {
         @Test
-        @Transactional
         @DisplayName("Success : should change deleted true")
         void success() {
             List<RiderSettlement> riderSettlements = riderSettlementRepository.findAll();
@@ -171,7 +169,6 @@ class RiderSettlementServiceTest {
             assertTrue(riderSettlement.isDeleted());
         }
         @Test
-        @Transactional
         @DisplayName("Fail : should throw an error when payment Id doesn't exist")
         void fail() {
             assertThrows(RiderSettlementNotFoundException.class,
@@ -181,6 +178,7 @@ class RiderSettlementServiceTest {
 
     @Test
     @DisplayName("Success : should calculate money properly")
+    @Transactional
     void calculateMoneyForRider() {
         OrderInfo orderInfo = new OrderInfo(
                 UUID.randomUUID(),
