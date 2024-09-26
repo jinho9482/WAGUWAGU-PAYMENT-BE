@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface PaymentRepository extends JpaRepository<Payment, UUID> {
-    Optional<Payment> findByIdAndCanceledFalse(UUID id);
+public interface PaymentRepository extends JpaRepository<Payment, Long> {
+    Optional<Payment> findByIdAndCanceledFalse(Long id);
     Optional<Payment> findByOrderIdAndCanceledFalse(UUID orderId);
 //    void deleteByOrderId(UUID orderId);
 }

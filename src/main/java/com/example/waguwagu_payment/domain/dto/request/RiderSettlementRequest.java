@@ -9,7 +9,7 @@ public record RiderSettlementRequest(
     int profit,
     int incomeTax,
     int residentTax,
-    UUID paymentId
+    Long paymentId
 ) {
     public RiderSettlement toEntity(Payment payment) {
         RiderSettlement riderSettlement = RiderSettlement.builder()

@@ -2,7 +2,7 @@ spring:
   application:
     name: waguwagu-payment
   datasource:
-    url: jdbc:mysql://payment-mysql:3306/waguwagu_payment?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://waguwagu-payment-mysql:3306/waguwagu_payment?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: {MYSQL_USER}
     password: {MYSQL_PASSWORD}
   jpa:
@@ -10,7 +10,7 @@ spring:
       ddl-auto: update
     show-sql: true
   kafka:
-    bootstrap-servers: 34.71.194.186:9094
+    bootstrap-servers: 104.197.138.114:9094
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:

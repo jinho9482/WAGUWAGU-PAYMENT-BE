@@ -12,9 +12,9 @@ import java.util.UUID;
 public interface StoreSettlementService {
     void createStoreSettlement(StoreSettlementRequest req);
     StoreSettlementResponse getById(UUID id);
-    StoreSettlementResponse getByPaymentId(UUID paymentId);
+    StoreSettlementResponse getByPaymentId(Long paymentId);
     void deleteById(UUID id);
-    void deleteByPaymentId(UUID paymentId);
+    void deleteByPaymentId(Long paymentId);
 //    StoreIncome calculateMoneyForStore(OrderInfo dto);
 
     StoreCalculationResponse calculateMoneyForStore(OrderInfo dto);

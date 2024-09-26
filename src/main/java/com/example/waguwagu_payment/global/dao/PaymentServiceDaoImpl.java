@@ -20,7 +20,7 @@ public class PaymentServiceDaoImpl implements PaymentServiceDao {
     }
 
     @Override
-    public Payment findById(UUID id) {
+    public Payment findById(Long id) {
         Payment payment = paymentRepository.findByIdAndCanceledFalse(id)
                 .orElseThrow(PaymentNotFoundException::new);
         return payment;

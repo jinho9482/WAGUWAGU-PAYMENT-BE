@@ -14,16 +14,16 @@ import java.util.UUID;
 @Table(name = "PAYMENT")
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "PAYMENT_ID")
-    private UUID id;
+    private Long id;
 
     @Column(name = "ORDER_ID", unique = true)
     private UUID orderId;
 
     // 결제 시점
     @Column(name = "CREATED_AT")
-    private Timestamp createdAt;
+    @Builder.Default
+    private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
 
     @Column(name = "CANCELED")
     @Builder.Default
