@@ -38,10 +38,6 @@ https://github.com/WAGUWAGUUU/WAGUWAGU
 ## 🔗 ERD<br>
 <img width="767" alt="image" src="https://github.com/user-attachments/assets/a9f34fd2-c922-4704-9377-e815be0ad69e"><br><br>
 
-## 🧱 새로운 서비스 구조 적용<br>
-* 여러 서비스를 호출하는 독자적인 서비스 클래스 생성<br>
-<img width="737" alt="image" src="https://github.com/user-attachments/assets/c051c5c5-5fb7-40bd-b40d-27b53b1d3c35">
-
 
 ##  <br>🔧 트러블 슈팅
 
